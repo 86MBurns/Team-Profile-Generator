@@ -77,7 +77,7 @@ function userInfo(){
                 }
             }
         ])
-        .then ()
+        // .then ()
         //this is whet i need to set roles nad prompts for roles.
     })
 }
