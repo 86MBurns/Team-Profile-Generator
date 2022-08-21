@@ -22,6 +22,46 @@ let teamProfile = [];
 //ask for "what team member you would like to add" or "are you done"
     //inquirer.prompt()
     //then deciding wat function to call
+function userInfo(){
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'input name',
+            name: 'name',
+            validate: function(userName){
+                if (userName){
+                    return true;
+                } else{
+                    return 'Name required';
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'input varified email',
+            name: 'email',
+            validate: function(userEmail){
+                if (userEmail){
+                    return true;
+                } else{
+                    return 'Email required';
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'input user id',
+            name: 'id',
+            validate: function(userId){
+                if (userId){
+                    return true;
+                } else{
+                    return 'Id required';
+                }
+            }
+        },
+    ])
+}
 
 
 
