@@ -13,7 +13,7 @@ const employee = require('/employee.js');
 
 class Manager extends Employee{
     constructor (name, id, email, role, officeNumber){
-        super(employee)
+        super(employee)//?
         this.github = github;
     }
     getOfficeNumber(){
