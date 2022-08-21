@@ -61,6 +61,25 @@ function userInfo(){
             }
         },
     ])
+    .then((answer) =>{
+        if  (answer.title === manager)
+        inquirer.prompt([
+            {
+                type: 'input',
+                message: 'input office location',
+                name: 'office',
+                validate: (mngrLocal) => {
+                    if (mngrLocal){
+                        return true;
+                    } else{
+                        return 'Location required';
+                    }
+                }
+            }
+        ])
+        .then ()
+        //this is whet i need to set roles nad prompts for roles.
+    })
 }
 
 
