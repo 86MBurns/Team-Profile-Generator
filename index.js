@@ -3,7 +3,11 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // Employee, Manager, Engineer, and Intern
-
+const Employee = require('./Roles/employee');
+const Manager = require('./Roles/manager');
+const Engineer = require('./Roles/engineer');
+const Intern = require('./Roles/intern');
+const { listenerCount } = require('process');
 //global scope  create an empty array list to stor employee objects
 let teamProfile = [];
 
@@ -60,9 +64,17 @@ function userInfo(){
                 }
             }
         },
+        {
+            type: 'list',
+            message: 'Pick a title',
+            name:'title',
+            choices: ["Manager", "Engineer", "Intern"]
+        },
     ])
-    .then((answer) =>{
-        if  (answer.title === manager)
+    //this is whet i need to set roles nad prompts for roles.
+    // manager
+    .then(answer =>{
+        if  (answer.title === 'Manager'){
         inquirer.prompt([
             {
                 type: 'input',
@@ -77,9 +89,57 @@ function userInfo(){
                 }
             }
         ])
-        // .then ()
-        //this is whet i need to set roles nad prompts for roles.
-    })
+        .then (response =>{
+            const teamManager = new Manager (answer.name, answer.email, answer.title, response.office)
+            teamMember.push(teamManager); 
+        })
+        
+    }
+    //engineer
+    else if (answer.title === 'Engineer'){
+        inquirer.prompt([
+            {
+                type: 'input',
+                message: 'input github',
+                name: 'github',
+                validate: (engineerGithub) => {
+                    if (engineerGithub){
+                        return true;
+                    } else{
+                        return 'Github required';
+                    }
+                }
+            }
+        ])
+        .then (response =>{
+            const teamEngineer = new Engineer (answer.name, answer.email, answer.title, response.github)
+            teamMember.push(teamEngineer); 
+        })
+        
+    }
+    //intern
+    else if (answer.title === 'Intern'){
+        inquirer.prompt([
+            {
+                type: 'input',
+                message: 'Input school',
+                name: 'school',
+                validate: (internSchool) => {
+                    if (internSchool){
+                        return true;
+                    } else{
+                        return 'School required';
+                    }
+                }
+            }
+        ])
+        .then (response =>{
+            const teamIntern = new Intern (answer.name, answer.email, answer.title, response.school)
+            teamMember.push(teamIntern); 
+        })
+        
+    }
+})
 }
 
 
