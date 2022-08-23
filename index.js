@@ -1,17 +1,17 @@
 // require (inquirer)
-const inquirer = require('inquirer');
-const fs = require('fs');
+const inquirer = require ('inquirer');
+const fs = require ('fs');
 
-// Employee, Manager, Engineer, and Intern
-const Employee = require('./Roles/employee');
-const Manager = require('./Roles/manager');
-const Engineer = require('./Roles/engineer');
-const Intern = require('./Roles/intern');
+// Employee, m, Engineer, and Intern
+const employee = require('./Roles/employee');
+const manager = require('./Roles/m');
+const engineer = require('./Roles/engineer');
+const intern = require('./Roles/intern');
 const { listenerCount } = require('process');
 //global scope  create an empty array list to stor employee objects
 let teamProfile = [];
 
-// gather MANAGER DATA
+// gather m DATA
     //inquirer.prompt()
     // build manger object
 
@@ -68,13 +68,13 @@ function userInfo(){
             type: 'list',
             message: 'Pick a title',
             name:'title',
-            choices: ["Manager", "Engineer", "Intern"]
+            choices: ["manager", "engineer", "intern"]
         },
     ])
     //this is whet i need to set roles nad prompts for roles.
-    // manager
+    // m
     .then(answer =>{
-        if  (answer.title === 'Manager'){
+        if  (answer.title === 'm'){
         inquirer.prompt([
             {
                 type: 'input',
@@ -90,13 +90,13 @@ function userInfo(){
             }
         ])
         .then (response =>{
-            const teamManager = new Manager (answer.name, answer.email, answer.title, response.office)
-            teamMember.push(teamManager); 
+            const teamm = new manager (answer.name, answer.email, answer.title, response.office)
+            teamMember.push(teamm); 
         })
         
     }
     //engineer
-    else if (answer.title === 'Engineer'){
+    else if (answer.title === 'engineer'){
         inquirer.prompt([
             {
                 type: 'input',
@@ -112,13 +112,13 @@ function userInfo(){
             }
         ])
         .then (response =>{
-            const teamEngineer = new Engineer (answer.name, answer.email, answer.title, response.github)
+            const teamEngineer = new engineer (answer.name, answer.email, answer.title, response.github)
             teamMember.push(teamEngineer); 
         })
         
     }
     //intern
-    else if (answer.title === 'Intern'){
+    else if (answer.title === 'intern'){
         inquirer.prompt([
             {
                 type: 'input',
@@ -134,7 +134,7 @@ function userInfo(){
             }
         ])
         .then (response =>{
-            const teamIntern = new Intern (answer.name, answer.email, answer.title, response.school)
+            const teamIntern = new intern (answer.name, answer.email, answer.title, response.school)
             teamMember.push(teamIntern); 
         })
         
