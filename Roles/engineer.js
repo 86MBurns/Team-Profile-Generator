@@ -9,11 +9,11 @@
 // github—GitHub username
 // getGithub()
 // getRole()—overridden to return 'Engineer'
-const employee = require('/employee.js');
+const Employee = require('../Roles/employee');
 
 class Engineer extends Employee{
     constructor (name, id, email, role, github){
-        super(employee)//?
+        super(Employee)//?
         this.github = github;
     }
     getGitHub(){

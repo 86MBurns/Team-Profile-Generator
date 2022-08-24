@@ -1,13 +1,14 @@
 // require (inquirer)
-const inquirer = require ('inquirer');
-const fs = require ('fs');
+// const inquirer = require('inquirer');
+const inquirer = require('inquirer');
+const fs = require('fs');
 
 // Employee, m, Engineer, and Intern
 const employee = require('./Roles/employee');
-const manager = require('./Roles/m');
+const manager = require('./Roles/manager');
 const engineer = require('./Roles/engineer');
 const intern = require('./Roles/intern');
-const { listenerCount } = require('process');
+
 //global scope  create an empty array list to stor employee objects
 let teamProfile = [];
 
@@ -68,13 +69,13 @@ function userInfo(){
             type: 'list',
             message: 'Pick a title',
             name:'title',
-            choices: ["manager", "engineer", "intern"]
+            choices: ["Manager", "Engineer", "Intern"]
         },
     ])
     //this is whet i need to set roles nad prompts for roles.
     // m
     .then(answer =>{
-        if  (answer.title === 'm'){
+        if  (answer.title === 'Manager'){
         inquirer.prompt([
             {
                 type: 'input',
@@ -96,7 +97,7 @@ function userInfo(){
         
     }
     //engineer
-    else if (answer.title === 'engineer'){
+    else if (answer.title === 'Engineer'){
         inquirer.prompt([
             {
                 type: 'input',
@@ -118,7 +119,7 @@ function userInfo(){
         
     }
     //intern
-    else if (answer.title === 'intern'){
+    else if (answer.title === 'Intern'){
         inquirer.prompt([
             {
                 type: 'input',
@@ -139,9 +140,14 @@ function userInfo(){
         })
         
     }
+    else {
+        const employeeTeam = new employee (answer.name, answer.email, answer.title);
+        teamMember.push(employeeTeam);
+    }
 })
 }
 
 
 
 //generate the Html and write to a file
+userInfo();

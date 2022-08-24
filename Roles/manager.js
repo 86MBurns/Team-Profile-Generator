@@ -9,11 +9,11 @@
 // officeNumber
 // getRole()—overridden to return 'Manager'
 
-const employee = require('/employee.js');
+const Employee = require('../Roles/employee');
 
 class Manager extends Employee{
     constructor (name, id, email, role, officeNumber){
-        super(employee)//?
+        super(Employee)//?
         this.github = github;
     }
     getOfficeNumber(){
