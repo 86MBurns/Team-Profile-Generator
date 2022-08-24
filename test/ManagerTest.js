@@ -1,11 +1,21 @@
-// ├── __tests__/             //jest tests
-// │   ├── Employee.test.js
-// │   ├── Engineer.test.js
-// │   ├── Intern.test.js
-// │   └── Manager.test.js
-// ├── dist/                  // rendered output (HTML) and CSS style sheet      
-// ├── lib/                   // classes
-// ├── src/                   // template helper code 
-// ├── .gitignore             // indicates which folders and files Git should ignore
-// ├── index.js               // runs the application
-// └── package.json    
+const Manager = require('../Roles/Manager');
+
+const testManager = new Manager(name, email, id, title);
+
+test ('Manager', () =>{
+    it('has a name', () => {
+        expect(testManager.name).toEqual.expect.any(String);
+    })
+    it('has a email', () => {
+        expect(testManager.email).toEqual.expect.any(stringContaining('@','.com'));
+    })
+    it('has a id', () => {
+        expect(testManager.id).toEqual.expect.any(Number);
+    })
+    it('has a title', () => {
+        expect(testManager.title).toBe('Manager');
+    })
+    it('has a office number', () => {
+       expect(testManager.officeNumber).toEqual.expect.any(Number);
+    })
+})

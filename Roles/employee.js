@@ -8,11 +8,11 @@
 // getEmail()
 // getRole()—returns 'Employee'
 class Employee {
-    constructor (name, id, email){
+    constructor (name, id, email,title){
         this.name = name;
         this.id = id;
         this.email;
-        this.role = role;
+        this.title = title;
     }
     getName(){
         return this.name;
@@ -27,7 +27,7 @@ class Employee {
     }
 
     getRole(){
-        return this.role;
+        return this.title;
     }
 }
 //this will export the employee class to other roles.

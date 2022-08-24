@@ -10,7 +10,7 @@ const engineer = require('./Roles/engineer');
 const intern = require('./Roles/intern');
 
 //global scope  create an empty array list to stor employee objects
-let teamProfile = [];
+let teamMember = [];
 
 // gather m DATA
     //inquirer.prompt()
@@ -91,8 +91,8 @@ function userInfo(){
             }
         ])
         .then (response =>{
-            const teamm = new manager (answer.name, answer.email, answer.title, response.office)
-            teamMember.push(teamm); 
+            const teamManager = new manager (answer.name, answer.email, answer.title, response.office)
+            teamMember.push(teamManager); 
         })
         
     }
