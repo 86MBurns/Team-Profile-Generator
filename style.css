@@ -1,0 +1,31 @@
+body{
+   
+}
+.title {
+    color: white;
+background-color: indianred;
+float: left;
+padding: 20px;
+text-align: center;
+width: 100%;
+font-size: 50px;
+}
+.container{
+margin: 20px;
+}
+.card-header{
+    background-color: dodgerblue;
+}
+.name{
+    color: white;
+}
+.role{
+    color: white;
+}
+.employee{
+    color: white;
+}
+.card-info{
+    margin: 15px;
+    border:  solid 2px rgba(128, 128, 128, 0.205);
+}
